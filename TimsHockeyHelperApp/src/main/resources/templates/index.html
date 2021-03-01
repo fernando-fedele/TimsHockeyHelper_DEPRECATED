@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Tim's Hockey Helper</h1>
+	
+	<form th:action="@{/}" method="post">
+		<select th:name="pickedPlayers" multiple size='20'>
+			<option th:each="player : *{players}" th:text="${player.formattedName}" th:value="${player.id}" />
+		</select><br><br>
+		<input type="submit">
+	</form>
+
+</body>
+</html>

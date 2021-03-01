@@ -1,0 +1,14 @@
+* {
+	color: blue;
+}
+
+.container {
+	position: relative;
+}
+
+.rosters { 
+	position: absolute;
+	visibility: hidden;
+	top: 0;
+	left: 0;
+}
