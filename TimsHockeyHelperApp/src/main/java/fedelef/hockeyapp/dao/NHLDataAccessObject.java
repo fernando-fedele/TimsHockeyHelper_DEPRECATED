@@ -68,8 +68,8 @@ public class NHLDataAccessObject {
 		for (int i = 0; i < roster.length(); i++) {
 			player = roster.getJSONObject(i);
 			
-			//TODO - limit which players get picked
-			if (true) { 
+			//TODO - further limit which players get picked
+			if (!player.getJSONObject("position").getString("code").equals("G")) { 
 			
 			players.add(new Player(
 					player.getJSONObject("person").getInt("id"), 
