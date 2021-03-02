@@ -1,14 +1,78 @@
-* {
-	color: blue;
+/*
+	Minnesota Wild Colours:
+		Forest Green - #154734
+		Iron Range Red - #a6192e
+		Minnesota Wheat - #ddcba4
+		Harvest Gold - #eaaa00
+*/
+
+@font-face {
+ 	font-family: 'Bauer';
+ 	src: url('../fonts/Bauer-YE4v.ttf')  format('truetype');
+}
+
+@font-face {
+	font-family: 'Roboto';
+ 	src: url('../fonts/Roboto-Regular.ttf')  format('truetype');
+}
+
+html {
+ 	height: 100%;
+	margin: 0;
+	background: url(../images/min.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+body {
+	font-family: 'Roboto', Fallback, sans-serif;
+	color: black;
 }
 
 .container {
-	position: relative;
+ 	display: grid;
+ 	grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+ 	padding: 20px;
 }
 
-.rosters { 
-	position: absolute;
-	visibility: hidden;
-	top: 0;
-	left: 0;
+
+h1, h2 {
+	font-family: 'Bauer', Fallback, sans-serif;
+	color: #ddcba4;
+	text-shadow: 
+		3px 3px 0 #000,
+    	-1px -1px 0 #000,  
+      	1px -1px 0 #000,
+      	-1px 1px 0 #000,
+       	1px 1px 0 #000;
+}
+
+h1 {
+	text-align: center;
+}
+
+a:visited {
+	color: #a6192e;
+}
+
+a {
+	color: #a6192e;
+}
+
+.rmvTD {
+	padding-left: 20px;
+}
+
+table {
+	background-color: #ddcba4;
+}
+
+input {
+  background-color: #a6192e; 
+  color: #eaaa00;
+}
+
+option {
+	background-color: #ddcba4;
 }
