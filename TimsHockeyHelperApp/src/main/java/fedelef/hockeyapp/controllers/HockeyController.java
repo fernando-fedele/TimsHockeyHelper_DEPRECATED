@@ -54,7 +54,7 @@ public class HockeyController {
 	@PostMapping("/")
 	public String checkStats(Model model, @RequestParam(value = "pickedPlayers", required = false) String[] playerIDs) {
 
-		if (playerIDs.length == 0) {
+		if (playerIDs.length == 0 || players.isEmpty()) {
 			return "redirect:/";
 		}
 
@@ -67,7 +67,9 @@ public class HockeyController {
 		}
 
 		for (Player p : selectedPlayers) {
-			group.add(p);
+			if (!group.contains(p)) {
+				group.add(p);
+			}
 		}
 
 		model.addAttribute("players", players);
@@ -86,6 +88,12 @@ public class HockeyController {
 			}
 		}
 
+		return "redirect:/";
+	}
+	
+	@GetMapping("/clearAll")
+	public String clearGroup() {
+		group.clear();
 		return "redirect:/";
 	}
 

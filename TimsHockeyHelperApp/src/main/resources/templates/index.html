@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <title>Tim's Hockey Helper</title>
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" type="text/css" 
+	media="all" th:href="@{/css/styles.css}" />
+
 <script>
 	// on page load, focus on playerlist -> lets you type immediately
 	document.addEventListener('DOMContentLoaded', function() {
@@ -13,25 +18,32 @@
 
 </head>
 <body>
-	<h1>Tim's Hockey Helper</h1>
-	
-	<form th:action="@{/}" method="post">
-		<select id="playerSelect" th:name="pickedPlayers" multiple size='20'>
-			<option th:each="player : *{players}" th:text="${player.formattedName}" th:value="${player.id}" />
-		</select><br><br>
-		<input type="submit" value="Add to Group" name="btn"><br>
-	</form><br>
+	<h1>TIMMIES HOCKEY HELPER</h1>
+
+	<div class="container">
+		<div class="item">
+			<form th:action="@{/}" method="post">
+				<select id="playerSelect" th:name="pickedPlayers" multiple size='20'>
+					<option th:each="player : *{players}"
+						th:text="${player.formattedName}" th:value="${player.id}" />
+				</select><br> <br> <input type="submit" value="Add to Group"
+					name="btn"><br>
+			</form>
+		</div>
 
 
-	<h3>Group</h3>
-	<table>
-		<tr th:each="player : ${group}">
-			<td th:text="${player.formattedName}"></td>
-			<td> <a th:href="@{/removePlayer/{id} (id=${player.id})}">Remove</a> </td>
-		</tr>
-	</table>
-	<br>
-	<input type="button" value="Clear All" th:onclick="'window.location.href = \'' + @{/clearAll} + '\''">
-
+		<div class="item">
+			<h2>Group</h2>
+			<table>
+				<tr th:each="player : ${group}">
+					<td class="plrTD" th:text="${player.formattedName}"></td>
+					<td class="rmvTD"><a th:href="@{/removePlayer/{id} (id=${player.id})}">Remove</a>
+					</td>
+				</tr>
+			</table>
+			<br> <input type="button" value="Clear All"
+				th:onclick="'window.location.href = \'' + @{/clearAll} + '\''">
+		</div>
+	</div>
 </body>
 </html>
