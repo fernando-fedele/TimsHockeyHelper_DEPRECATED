@@ -6,8 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" type="text/css" 
-	media="all" th:href="@{/css/styles.css}" />
+<link rel="stylesheet" type="text/css" media="all"
+	th:href="@{/css/styles.css}" />
 
 <script>
 	// on page load, focus on playerlist -> lets you type immediately
@@ -18,10 +18,15 @@
 
 </head>
 <body>
-	<h1>TIMMIES HOCKEY HELPER</h1>
+	<div class="header">
+		<h1>TIMMIES HOCKEY HELPER</h1>
+		<h3 id="subtitle">Get the Best Picks for the Tim Hortons Hockey
+			Challenge</h3>
+	</div>
 
 	<div class="container">
 		<div class="item">
+			<h2>Select Your Players</h2>
 			<form th:action="@{/}" method="post">
 				<select id="playerSelect" th:name="pickedPlayers" multiple size='20'>
 					<option th:each="player : *{players}"
@@ -29,6 +34,7 @@
 				</select><br> <br> <input type="submit" value="Add to Group"
 					name="btn"><br>
 			</form>
+			<br>
 		</div>
 
 
@@ -37,13 +43,34 @@
 			<table>
 				<tr th:each="player : ${group}">
 					<td class="plrTD" th:text="${player.formattedName}"></td>
-					<td class="rmvTD"><a th:href="@{/removePlayer/{id} (id=${player.id})}">Remove</a>
-					</td>
+					<td class="rmvTD"><a
+						th:href="@{/removePlayer/{id} (id=${player.id})}">Remove</a></td>
 				</tr>
 			</table>
-			<br> <input type="button" value="Clear All"
-				th:onclick="'window.location.href = \'' + @{/clearAll} + '\''">
+			<br>
+			<form th:action="@{/generatePicks}" method="get">
+				<input type="hidden" th:value=${group} /> <input type="submit"
+					value="Generate Best Picks" /> <input type="button"
+					value="Clear All"
+					th:onclick="'window.location.href = \'' + @{/clearAll} + '\''" />
+			</form>
 		</div>
 	</div>
+	<br>
+	<br>
+
+	<div class="footer">
+		<table id="footerTable">
+			<tr id="footerRow">
+				<td>Created by Fernando Fedele</td>
+				<td><a class="footerLink"
+					href="https://github.com/fernando-fedele/TimsHockeyHelper">GitHub
+						Repository</a></td>
+				<td><a class="footerLink"
+					href="https://www.linkedin.com/in/fedelef/">LinkedIn</a></td>
+			<tr>
+		</table>
+	</div>
+
 </body>
 </html>

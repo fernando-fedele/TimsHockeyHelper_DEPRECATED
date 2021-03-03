@@ -1,7 +1,9 @@
 package fedelef.hockeyapp.models;
 
+import java.util.ArrayList;
 
 public class Player implements Comparable<Player> {
+	// player info
 	private int id;
 	private String fullName;
 	private int jerseyNumber;
@@ -15,6 +17,9 @@ public class Player implements Comparable<Player> {
 	private int plusMinus;
 	private double shotPct;
 	
+	//gamestats
+	private ArrayList<GameStats> gameStats; // index 0 = latest game, index 4 = oldest game 
+	
 	public Player(int id, String fullName, int jerseyNumber, String position, String currentTeam) {
 		this.id = id;
 		this.fullName = fullName;
@@ -23,6 +28,8 @@ public class Player implements Comparable<Player> {
 		this.currentTeam = currentTeam;
 	}
 
+	
+	// player info
 	public int getId() {
 		return id;
 	}
@@ -47,6 +54,7 @@ public class Player implements Comparable<Player> {
 		return fullName + " - " + currentTeam + " - " + position;
 	}
 	
+	// stats
 	public void setStats(int goals, int gamesPlayed, int assists, int plusMinus, double shotPct) {
 		this.goals = goals;
 		this.gamesPlayed = gamesPlayed;
@@ -54,7 +62,7 @@ public class Player implements Comparable<Player> {
 		this.plusMinus = plusMinus;
 		this.shotPct = shotPct;
 	}
-
+	
 	public int getGoals() {
 		return goals;
 	}
@@ -76,8 +84,41 @@ public class Player implements Comparable<Player> {
 	}
 	
 	public String getGoalsPerGame() {
-		double gpg = ((double)this.goals) / this.gamesPlayed;
-		return String.format("%.3f", gpg);
+		return String.format("%.3f", this.getGoalsPerGameValue());
+	}
+	
+	public double getGoalsPerGameValue() {
+		if (this.gamesPlayed == 0) {
+			return 0.0;
+		}
+		return ((double)this.goals) / this.gamesPlayed;
+	}
+	
+	// gamestats
+	public void setGameStats(ArrayList<GameStats> gameStats) {
+		this.gameStats = gameStats;
+	}
+	
+	public ArrayList<GameStats> getGameStats() {
+		return gameStats;
+	}
+	
+	public int getGoalsLast3Games() {
+		int totalGoals = 0;
+		for (int i = 0; i < 3; i++) {
+			totalGoals += gameStats.get(i).getGoals();
+		}
+		
+		return totalGoals;	
+	}
+	
+	public int getGoalsLast5Games() {
+		int totalGoals = 0;
+		for (int i = 0; i < 5; i++) {
+			totalGoals += gameStats.get(i).getGoals();
+		}
+		
+		return totalGoals;	
 	}
 	
 	@Override
