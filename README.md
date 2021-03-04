@@ -1,4 +1,4 @@
-##Site is currently hosted on Heroku and can be accessed here: https://timmies-hockey-helper.herokuapp.com/
+## Site is currently hosted on Heroku and can be accessed here: https://timmies-hockey-helper.herokuapp.com/
 
 API used to get NHL teams, players, and stats can be accessed here: https://gitlab.com/dword4/nhlapi
 Bauer font used for the title and headers can be found here: https://www.fontspace.com/bauer-font-f5060 
