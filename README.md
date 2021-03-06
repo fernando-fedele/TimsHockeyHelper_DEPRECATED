@@ -33,6 +33,7 @@ I strongly recommend using a desktop browser with this app as it will greatly re
 - [ ] There needs to be a step-by-step list of instructions for how to use the app efficiently, either as a separate page or on the index.html for new users. 
 - [ ] I'd like to compare a player's goals/game for their last X games to their season's goals/game to see if they're on a hot-streak or a cold-streak
 - [ ] Create and add a favicon
+- [ ] Add option to limit player list so only players on teams playing that day appear
 
 
 #### Have any questions or suggestions for improvements? Send me an email at fedele.fernando1996@gmail.com
