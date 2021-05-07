@@ -1,0 +1,181 @@
+/*
+	Minnesota Wild Colours:
+		Forest Green - #154734 || #004F30
+		Iron Range Red - #a6192e
+		Minnesota Wheat - #ddcba4 || #EEE3C7
+		Harvest Gold - #eaaa00
+*/
+@font-face {
+	font-family: 'Bauer';
+	src: url('../fonts/Bauer-YE4v.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('../fonts/Roboto-Regular.ttf') format('truetype');
+}
+
+@media screen and (max-width: 600px) {
+	h1 {
+		font-size: 22px;
+	}
+	h2 {
+		font-size: 18px;
+	}
+	#subtitle {
+		padding-top: 5px;
+		font-size: 13px;
+	}
+	td, th {
+		font-size: 10px;
+	}
+	#footerRow>td {
+		font-size: 8px;
+	}
+	.container {
+		padding-top: 10px;
+		grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+	}
+	.item {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+}
+
+@media screen and (min-width: 601px) {
+	#subtitle {
+		font-size: 16px;
+	}
+	h2 {
+		font-size: 20px;
+	}
+	td, th {
+		font-size: 13px;
+	}
+	#footerRow>td {
+		font-size: 14px;
+	}
+	.container {
+		padding-top: 20px;
+		grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+	}
+	.item {
+		padding-left: 20px;
+		padding-right: 10px;
+	}
+}
+
+body {
+	font-family: 'Roboto', Fallback, sans-serif;
+	color: black;
+	margin: 0 auto;
+	padding: 0;
+	width: 100%;
+}
+
+html {
+	background: url(../images/min.png) repeat center center fixed;
+	height: 100%;
+	width: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	margin: 0 auto;
+}
+
+.header {
+	width: 100%;
+	margin-bottom: -15px;
+	padding-top: 5px;
+	padding-bottom: 10px;
+	background: rgba(0, 0, 0, 0.3);
+}
+
+.footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+	text-align: center;
+}
+
+#footerTable {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
+	color: #ddcba4;
+}
+
+#footerRow>td {
+	width: 33%;
+}
+
+.footerLink, .footerLink:visited {
+	color: #eaaa00;
+}
+
+#subtitle {
+	margin-top: -10px;
+	text-align: center;
+	color: #a6192e;
+	font-style: italic;
+}
+
+.container {
+	width: 100%;
+	min-width:0;
+	display: grid;
+}
+
+h1, h2 {
+	font-family: 'Bauer', Fallback, sans-serif;
+	color: #ddcba4;
+	text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px
+		0 #000, 1px 1px 0 #000;
+}
+
+h1 {
+	text-align: center;
+}
+
+a, a:visited {
+	color: #a6192e;
+}
+
+.rmvTD {
+	padding-left: 20px;
+}
+
+table {
+	background-color: #ddcba4;
+	border-collapse: collapse;
+	margin: 5px;
+}
+
+input {
+	background-color: #a6192e;
+	color: #eaaa00;
+	font-size: 18px;
+}
+
+option {
+	background-color: #ddcba4;
+}
+
+th {
+	background-color: #a6192e;
+	color: #eaaa00;
+	text-align: left;
+}
+
+td, th {
+	padding: 5px 10px;
+}
+
+#go_back {
+	padding-left: 10px;
+	color: #eaaa00;
+}

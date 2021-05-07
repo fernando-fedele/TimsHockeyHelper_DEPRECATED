@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Tim's Hockey Helper</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" type="text/css" media="all"
+	th:href="@{/css/styles.css}" />
+
+</head>
+<body>
+	
+	<div class="header">
+		<h1>TIMMIES HOCKEY HELPER</h1>
+		<h3 id="subtitle">Get the Best Picks for the Tim Hortons Hockey Challenge</h3>
+		<a th:href="@{/}" id="go_back">Go Back</a>
+	</div>
+ 	
+	<div class="container">
+
+		<div class="item">
+			<h2>Top Goal Scorers</h2>
+			<table>
+				<tr>
+					<th>Player</th>
+					<th>Current Team</th>
+					<th>Pos.</th>
+					<th>Total Goals</th>
+				</tr>
+
+				<tr th:each="player : ${totalGoals}">
+					<td th:text="${player.full_name}"></td>
+					<td th:text="${player.team}"></td>
+					<td th:text="${player.position}"></td>
+					<td th:text="${player.goals}"></td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="item">
+			<h2>Top Goal Per Game</h2>
+			<table>
+				<tr>
+					<th>Player</th>
+					<th>Current Team</th>
+					<th>Pos.</th>
+					<th>Goals</th>
+					<th>Games</th>
+					<th>G/G</th>
+				</tr>
+
+				<tr th:each="player : ${goalsPerGame}">
+					<td th:text="${player.full_name}"></td>
+					<td th:text="${player.team}"></td>
+					<td th:text="${player.position}"></td>
+					<td th:text="${player.goals}"></td>
+					<td th:text="${player.games_played}"></td>
+					<td th:text="${#numbers.formatDecimal(player.goalsPerGame, 1, 2)}"></td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="item">
+			<h2>Top 3 Game Streaks</h2>
+			<table>
+				<tr>
+					<th>Player</th>
+					<th>Current Team</th>
+					<th>Pos.</th>
+					<th>Goals</th>
+				</tr>
+
+				<tr th:each="player : ${top3Games}">
+					<td th:text="${player.full_name}"></td>
+					<td th:text="${player.team}"></td>
+					<td th:text="${player.position}"></td>
+					<td th:text="${player.goals_per_3_games}"></td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="item">
+			<h2>Top 5 Game Streaks</h2>
+			<table>
+				<tr>
+					<th>Player</th>
+					<th>Current Team</th>
+					<th>Pos.</th>
+					<th>Goals</th>
+				</tr>
+
+				<tr th:each="player : ${top5Games}">
+					<td th:text="${player.full_name}"></td>
+					<td th:text="${player.team}"></td>
+					<td th:text="${player.position}"></td>
+					<td th:text="${player.goals_per_5_games}"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<br>
+	<br>
+
+	<div class="footer">
+		<table id="footerTable">
+			<tr id="footerRow">
+				<td>Created by Fernando Fedele</td>
+				<td><a class="footerLink"
+					href="https://github.com/fernando-fedele/TimsHockeyHelper">GitHub
+						Repository</a></td>
+				<td><a class="footerLink"
+					href="https://www.linkedin.com/in/fedelef/">LinkedIn</a></td>
+			<tr>
+		</table>
+	</div>
+
+</body>
+</html>
